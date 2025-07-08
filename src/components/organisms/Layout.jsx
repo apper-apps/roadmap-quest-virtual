@@ -2,8 +2,8 @@ import { Outlet } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { toast } from 'react-toastify'
 import Header from '@/components/organisms/Header'
-import { Button } from '@/components/atoms/Button'
-import ApperIcon from "@/components/ApperIcon";
+import Button from '@/components/atoms/Button'
+import ApperIcon from '@/components/ApperIcon'
 import { projectService } from '@/services/api/projectService'
 import { taskService } from '@/services/api/taskService'
 const Layout = () => {
