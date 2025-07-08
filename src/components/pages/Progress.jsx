@@ -1,11 +1,10 @@
 import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 import { motion } from "framer-motion";
 import { toast } from "react-toastify";
 import { useOutletContext } from "react-router-dom";
 import ProjectHeader from "@/components/organisms/ProjectHeader";
 import LevelCard from "@/components/organisms/LevelCard";
-import AchievementGallery from "@/components/organisms/AchievementGallery";
-import XPCounter from "@/components/molecules/XPCounter";
 import Loading from "@/components/ui/Loading";
 import Error from "@/components/ui/Error";
 import Empty from "@/components/ui/Empty";
@@ -14,7 +13,8 @@ import { useTasks } from "@/hooks/useTasks";
 import { useAchievements } from "@/hooks/useAchievements";
 import { levelService } from "@/services/api/levelService";
 
-const Dashboard = () => {
+const Progress = () => {
+  const { projectId } = useParams();
   const { selectedProject } = useOutletContext();
   const { calculateStats } = useProject();
   const { 
@@ -71,14 +71,13 @@ const Dashboard = () => {
     }
   };
 
-const handleTaskStatusChange = async (taskId, status) => {
+  const handleTaskStatusChange = async (taskId, status) => {
     try {
       await updateTaskStatus(taskId, status);
       const projectTasks = tasks.filter(t => t.projectId === selectedProject?.Id);
       const updatedStats = await calculateStats(projectTasks);
       setProjectStats(updatedStats);
       
-      // Check for achievements after a brief delay to ensure state is updated
       setTimeout(() => {
         checkAchievements();
       }, 100);
@@ -107,7 +106,7 @@ const handleTaskStatusChange = async (taskId, status) => {
     loadLevels();
   }, []);
 
-useEffect(() => {
+  useEffect(() => {
     if (tasks.length > 0 && selectedProject) {
       const projectTasks = tasks.filter(t => t.projectId === selectedProject.Id);
       calculateStats(projectTasks).then(stats => {
@@ -122,14 +121,14 @@ useEffect(() => {
     }
   }, [tasks, achievements, levels]);
 
-const loading = tasksLoading || achievementsLoading || levelsLoading;
+  const loading = tasksLoading || achievementsLoading || levelsLoading;
   const error = tasksError || achievementsError || levelsError;
 
   if (!selectedProject) {
     return (
       <Empty
         title="No project selected"
-        description="Please select a project from the sidebar to view its tasks"
+        description="Please select a project from the sidebar to view its progress"
         icon="FolderOpen"
       />
     );
@@ -166,23 +165,59 @@ const loading = tasksLoading || achievementsLoading || levelsLoading;
     );
   }
 
-return (
-    <div className="space-y-8">
+  return (
+    <motion.div 
+      className="space-y-8"
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+    >
       <ProjectHeader 
         project={selectedProject} 
         stats={projectStats}
       />
       
-{projectStats && (
-        <div className="flex justify-center">
-          <XPCounter
-            currentXP={projectStats.totalXP}
-            totalXP={projectStats.totalPossibleXP}
-          />
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <div className="lg:col-span-1 space-y-6">
+          <div className="grid grid-cols-1 gap-6">
+            {levels.slice(0, Math.ceil(levels.length / 2)).map((level) => {
+              const achievement = achievements.find(a => a.levelId === level.Id);
+              return (
+                <LevelCard
+                  key={level.Id}
+                  level={level}
+                  tasks={projectTasks}
+                  achievement={achievement}
+                  onTaskStatusChange={handleTaskStatusChange}
+                  onTaskAssign={handleTaskAssign}
+                  onSetTaskDueDate={handleSetTaskDueDate}
+                />
+              );
+            })}
+          </div>
         </div>
-      )}
-    </div>
+        
+        <div className="lg:col-span-1 space-y-6">
+          <div className="grid grid-cols-1 gap-6">
+            {levels.slice(Math.ceil(levels.length / 2)).map((level) => {
+              const achievement = achievements.find(a => a.levelId === level.Id);
+              return (
+                <LevelCard
+                  key={level.Id}
+                  level={level}
+                  tasks={projectTasks}
+                  achievement={achievement}
+                  onTaskStatusChange={handleTaskStatusChange}
+                  onTaskAssign={handleTaskAssign}
+                  onSetTaskDueDate={handleSetTaskDueDate}
+                />
+              );
+            })}
+          </div>
+        </div>
+      </div>
+    </motion.div>
   );
 };
 
-export default Dashboard;
+export default Progress;

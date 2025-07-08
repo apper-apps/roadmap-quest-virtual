@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
+import { Link, useOutletContext } from "react-router-dom";
 import ApperIcon from "@/components/ApperIcon";
 import { cn } from "@/utils/cn";
-
 const Header = ({ className }) => {
   return (
     <motion.header
@@ -29,25 +29,25 @@ const Header = ({ className }) => {
             </div>
           </div>
           
-          <nav className="flex items-center gap-6">
-            <a 
-              href="#dashboard" 
+<nav className="flex items-center gap-6">
+            <Link 
+              to="/" 
               className="text-sm font-medium text-gray-700 hover:text-primary transition-colors"
             >
               Dashboard
-            </a>
-            <a 
-              href="#progress" 
+            </Link>
+            <Link 
+              to={`/progress/project_${useOutletContext()?.selectedProject?.Id || 1}`}
               className="text-sm font-medium text-gray-700 hover:text-primary transition-colors"
             >
               Progress
-            </a>
-            <a 
-              href="#achievements" 
+            </Link>
+            <Link 
+              to={`/achievements/project_${useOutletContext()?.selectedProject?.Id || 1}`}
               className="text-sm font-medium text-gray-700 hover:text-primary transition-colors"
             >
               Achievements
-            </a>
+            </Link>
             <a 
               href="#team" 
               className="text-sm font-medium text-gray-700 hover:text-primary transition-colors"
