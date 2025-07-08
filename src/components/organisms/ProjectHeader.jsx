@@ -13,7 +13,7 @@ const ProjectHeader = ({
   if (!project || !stats) return null;
 
   return (
-    <motion.div
+<motion.div
       className={cn(
         "bg-gradient-to-r from-primary to-secondary rounded-xl p-6 text-white shadow-soft-lg",
         className
@@ -55,9 +55,9 @@ const ProjectHeader = ({
               <span className="text-sm font-medium">Overall Progress</span>
               <span className="text-sm font-medium">{stats.overallProgress}%</span>
             </div>
-            <div className="w-full bg-white/20 rounded-full h-3">
+<div className="w-full bg-white/25 rounded-full h-3">
               <motion.div
-                className="bg-white rounded-full h-3"
+                className="bg-white rounded-full h-3 shadow-sm"
                 initial={{ width: 0 }}
                 animate={{ width: `${stats.overallProgress}%` }}
                 transition={{ duration: 1, ease: "easeOut" }}

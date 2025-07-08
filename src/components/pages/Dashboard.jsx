@@ -150,17 +150,19 @@ const Dashboard = () => {
     );
   }
 
-  return (
+return (
     <div className="space-y-8">
       <ProjectHeader 
         project={project} 
         stats={projectStats}
       />
       
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-        <div className="lg:col-span-2 space-y-6">
-          <div className="grid grid-cols-1 xl:grid-cols-2 gap-6">
-            {levels.map((level) => {
+      <AchievementGallery achievements={achievements} />
+      
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <div className="lg:col-span-1 space-y-6">
+          <div className="grid grid-cols-1 gap-6">
+            {levels.slice(0, Math.ceil(levels.length / 2)).map((level) => {
               const achievement = achievements.find(a => a.levelId === level.Id);
               return (
                 <LevelCard
@@ -177,7 +179,7 @@ const Dashboard = () => {
           </div>
         </div>
         
-        <div className="space-y-6">
+        <div className="lg:col-span-1 space-y-6">
           {projectStats && (
             <XPCounter
               currentXP={projectStats.totalXP}
@@ -185,7 +187,22 @@ const Dashboard = () => {
             />
           )}
           
-          <AchievementGallery achievements={achievements} />
+          <div className="grid grid-cols-1 gap-6">
+            {levels.slice(Math.ceil(levels.length / 2)).map((level) => {
+              const achievement = achievements.find(a => a.levelId === level.Id);
+              return (
+                <LevelCard
+                  key={level.Id}
+                  level={level}
+                  tasks={tasks}
+                  achievement={achievement}
+                  onTaskStatusChange={handleTaskStatusChange}
+                  onTaskAssign={handleTaskAssign}
+                  onSetTaskDueDate={handleSetTaskDueDate}
+                />
+              );
+            })}
+          </div>
         </div>
       </div>
     </div>

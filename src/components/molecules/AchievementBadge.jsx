@@ -14,7 +14,7 @@ const AchievementBadge = ({
     <motion.div
       className={cn(
         "flex flex-col items-center gap-2 p-4 rounded-xl transition-all duration-300",
-        {
+{
           "bg-gradient-to-br from-primary/10 to-secondary/10 border-2 border-primary/20 badge-glow": isUnlocked,
           "bg-gray-100 border-2 border-gray-300 opacity-60": !isUnlocked,
         },
@@ -28,7 +28,7 @@ const AchievementBadge = ({
       <div
         className={cn(
           "rounded-full p-3 transition-all duration-300",
-          {
+{
             "bg-gradient-to-br from-primary to-secondary text-white": isUnlocked,
             "bg-gray-300 text-gray-500": !isUnlocked,
           },

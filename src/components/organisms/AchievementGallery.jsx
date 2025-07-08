@@ -10,17 +10,17 @@ const AchievementGallery = ({
   const totalCount = achievements.length;
 
   return (
-    <motion.div
+<motion.div
       className={cn(
-        "bg-white rounded-xl shadow-soft p-6",
+        "bg-surface rounded-xl shadow-soft p-6 border border-primary/10",
         className
       )}
       initial={{ opacity: 0, x: 20 }}
       animate={{ opacity: 1, x: 0 }}
       transition={{ duration: 0.5 }}
     >
-      <div className="flex items-center justify-between mb-6">
-        <h2 className="text-2xl font-bold text-gray-800">Achievements</h2>
+<div className="flex items-center justify-between mb-6">
+        <h2 className="text-2xl font-bold text-gray-900">Achievements</h2>
         <div className="text-sm text-gray-600">
           {unlockedCount}/{totalCount} Unlocked
         </div>

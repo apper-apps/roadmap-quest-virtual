@@ -5,17 +5,17 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {
+extend: {
       colors: {
-        primary: "#B8A7E8",
-        secondary: "#FFD4DB",
-        accent: "#A8E6CF",
-        surface: "#F7F3FF",
-        background: "#FAFAFA",
-        success: "#81C784",
-        warning: "#FFD54F",
-        error: "#FF8A80",
-        info: "#81D4FA"
+        primary: "#6366F1",
+        secondary: "#EC4899",
+        accent: "#10B981",
+        surface: "#F8FAFC",
+        background: "#FFFFFF",
+        success: "#22C55E",
+        warning: "#F59E0B",
+        error: "#EF4444",
+        info: "#3B82F6"
       },
       fontFamily: {
         display: ["Fredoka One", "cursive"],

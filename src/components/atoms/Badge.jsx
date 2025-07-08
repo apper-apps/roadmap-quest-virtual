@@ -17,7 +17,7 @@ const Badge = forwardRef(({
           "bg-success/10 text-success": variant === "success",
           "bg-error/10 text-error": variant === "error",
           "bg-warning/10 text-warning": variant === "warning",
-          "bg-info/10 text-info": variant === "info",
+"bg-info/10 text-info": variant === "info",
           "bg-gradient-to-r from-primary to-secondary text-white badge-glow": variant === "premium",
         },
         {

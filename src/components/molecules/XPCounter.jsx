@@ -19,7 +19,7 @@ const XPCounter = ({
       animate={{ scale: 1, opacity: 1 }}
       transition={{ duration: 0.5 }}
     >
-      <div className="flex items-center gap-2">
+<div className="flex items-center gap-2">
         <div className="w-10 h-10 rounded-full bg-gradient-to-br from-accent to-primary flex items-center justify-center">
           <ApperIcon name="Zap" className="w-6 h-6 text-white" />
         </div>
