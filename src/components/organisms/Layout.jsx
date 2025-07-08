@@ -1,12 +1,11 @@
 import { Outlet } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { toast } from "react-toastify";
-import Header from "@/components/organisms/Header";
-import { Button } from "@/components/atoms/Button";
-import { ApperIcon } from "@/components/ApperIcon";
-import { projectService } from "@/services/api/projectService";
-import { taskService } from "@/services/api/taskService";
-
+import { toast } from 'react-toastify'
+import Header from '@/components/organisms/Header'
+import { Button } from '@/components/atoms/Button'
+import ApperIcon from "@/components/ApperIcon";
+import { projectService } from '@/services/api/projectService'
+import { taskService } from '@/services/api/taskService'
 const Layout = () => {
   const [projects, setProjects] = useState([]);
   const [selectedProject, setSelectedProject] = useState(null);
