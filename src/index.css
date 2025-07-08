@@ -12,53 +12,60 @@
 }
 
 @layer components {
+
+  /* Replaced linear-gradient with a soft indigo color */
   .gradient-text {
-    background: linear-gradient(135deg, #6366F1 0%, #EC4899 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: #818CF8;
+    /* Soft Indigo */
   }
-  
+
   .glass-effect {
     backdrop-filter: blur(10px);
     background: rgba(255, 255, 255, 0.95);
     border: 1px solid rgba(99, 102, 241, 0.2);
   }
-  
+
+  /* Replaced linear-gradient with a solid indigo */
   .progress-bar {
-    background: linear-gradient(90deg, #6366F1 0%, #10B981 100%);
+    background-color: #6366F1;
+    /* Solid Indigo */
     border-radius: 9999px;
     height: 8px;
     transition: width 0.5s ease-in-out;
   }
-  
+
   .badge-glow {
     box-shadow: 0 0 20px rgba(99, 102, 241, 0.4);
   }
-.task-card {
+
+  .task-card {
     background: rgba(255, 255, 255, 0.98);
     border: 1px solid rgba(99, 102, 241, 0.15);
     transition: all 0.3s ease;
   }
-  
+
   .task-card:hover {
     transform: translateY(-2px);
     box-shadow: 0 8px 25px rgba(99, 102, 241, 0.2);
   }
-  
+
+  /* Replaced subtle gradient with a solid off-white */
   .level-card {
-    background: linear-gradient(135deg, #F8FAFC 0%, rgba(99, 102, 241, 0.08) 100%);
+    background-color: #F8FAFC;
+    /* Solid Off-White */
     border: 1px solid rgba(99, 102, 241, 0.2);
     transition: all 0.3s ease;
   }
-  
+
   .level-card:hover {
     transform: scale(1.02);
     box-shadow: 0 12px 30px rgba(99, 102, 241, 0.25);
   }
-  
+
+  /* Replaced linear-gradient with a solid indigo */
   .btn-primary {
-    background: linear-gradient(135deg, #6366F1 0%, #10B981 100%);
+    background-color: #6366F1;
+    /* Solid Indigo */
     color: white;
     border: none;
     padding: 12px 24px;
@@ -67,67 +74,24 @@
     transition: all 0.3s ease;
     box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
   }
-  
+
   .btn-primary:hover {
     transform: translateY(-2px);
     box-shadow: 0 6px 20px rgba(99, 102, 241, 0.4);
   }
-  
-  .status-pending { color: #FF8A80; }
-  .status-working { color: #FFD54F; }
-  .status-complete { color: #81C784; }
-.xp-counter {
-    background: linear-gradient(135deg, #EC4899 0%, #10B981 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    font-weight: 800;
+
+  .status-pending {
+    color: #FF8A80;
   }
-}
 
-/* Toast Customizations */
-.Toastify__toast-container {
-  top: 20px !important;
-  right: 20px !important;
-  width: 320px !important;
-}
+  .status-working {
+    color: #FFD54F;
+  }
 
-.Toastify__toast {
-  border-radius: 12px !important;
-  font-family: 'Inter', sans-serif !important;
-  font-size: 14px !important;
-  padding: 16px !important;
-  background: rgba(255, 255, 255, 0.98) !important;
-  backdrop-filter: blur(10px) !important;
-  border: 1px solid rgba(99, 102, 241, 0.2) !important;
-  box-shadow: 0 8px 25px rgba(99, 102, 241, 0.2) !important;
-}
+  .status-complete {
+    color: #81C784;
+  }
 
-.Toastify__toast--success {
-  background: linear-gradient(135deg, #22C55E 0%, #10B981 100%) !important;
-  color: white !important;
-}
-
-.Toastify__toast--error {
-  background: linear-gradient(135deg, #EF4444 0%, #EC4899 100%) !important;
-  color: white !important;
-}
-
-.Toastify__toast--warning {
-  background: linear-gradient(135deg, #F59E0B 0%, #EC4899 100%) !important;
-  color: white !important;
-}
-
-.Toastify__progress-bar {
-  background: rgba(255, 255, 255, 0.3) !important;
-  border-radius: 4px !important;
-}
-
-.Toastify__close-button {
-  color: rgba(255, 255, 255, 0.8) !important;
-  opacity: 0.8 !important;
-}
-
-.Toastify__close-button:hover {
-  opacity: 1 !important;
-}
+  /* Replaced linear-gradient with a soft pink color */
+  .xp-counter {
+    color: #F472B
