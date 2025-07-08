@@ -1,0 +1,272 @@
+[
+  {
+    "Id": 1,
+    "name": "Niche Research",
+    "levelId": 1,
+    "assignedTo": "MySelf",
+    "status": "complete",
+    "dueDate": "2024-11-16",
+    "xpValue": 100
+  },
+  {
+    "Id": 2,
+    "name": "Content Coverage",
+    "levelId": 1,
+    "assignedTo": "Naveed Kalro",
+    "status": "working",
+    "dueDate": "2024-11-17",
+    "xpValue": 100
+  },
+  {
+    "Id": 3,
+    "name": "Main Article Writing (100% Human Written)",
+    "levelId": 1,
+    "assignedTo": "",
+    "status": "pending",
+    "dueDate": "",
+    "xpValue": 150
+  },
+  {
+    "Id": 4,
+    "name": "Other Articles Writing (100% Human Written)",
+    "levelId": 1,
+    "assignedTo": "",
+    "status": "pending",
+    "dueDate": "",
+    "xpValue": 150
+  },
+  {
+    "Id": 5,
+    "name": "Pantheon WordPress Installation",
+    "levelId": 2,
+    "assignedTo": "",
+    "status": "pending",
+    "dueDate": "",
+    "xpValue": 100
+  },
+  {
+    "Id": 6,
+    "name": "Discourage Search Engine",
+    "levelId": 2,
+    "assignedTo": "",
+    "status": "pending",
+    "dueDate": "",
+    "xpValue": 50
+  },
+  {
+    "Id": 7,
+    "name": "Delete Existing Posts, Pages, Themes and Plugins",
+    "levelId": 2,
+    "assignedTo": "",
+    "status": "pending",
+    "dueDate": "",
+    "xpValue": 75
+  },
+  {
+    "Id": 8,
+    "name": "Install Necessary Plugins and Themes",
+    "levelId": 2,
+    "assignedTo": "",
+    "status": "pending",
+    "dueDate": "",
+    "xpValue": 100
+  },
+  {
+    "Id": 9,
+    "name": "Website Design - (Main Article + Header and Footer)",
+    "levelId": 3,
+    "assignedTo": "",
+    "status": "pending",
+    "dueDate": "",
+    "xpValue": 200
+  },
+  {
+    "Id": 10,
+    "name": "Other Articles Designing",
+    "levelId": 3,
+    "assignedTo": "",
+    "status": "pending",
+    "dueDate": "",
+    "xpValue": 150
+  },
+  {
+    "Id": 11,
+    "name": "Interlinking + External Linking",
+    "levelId": 3,
+    "assignedTo": "",
+    "status": "pending",
+    "dueDate": "",
+    "xpValue": 100
+  },
+  {
+    "Id": 12,
+    "name": "Download Link Setup and Placement",
+    "levelId": 3,
+    "assignedTo": "",
+    "status": "pending",
+    "dueDate": "",
+    "xpValue": 75
+  },
+  {
+    "Id": 13,
+    "name": "Legal Pages Creation",
+    "levelId": 3,
+    "assignedTo": "",
+    "status": "pending",
+    "dueDate": "",
+    "xpValue": 100
+  },
+  {
+    "Id": 14,
+    "name": "Domain Purchase",
+    "levelId": 4,
+    "assignedTo": "",
+    "status": "pending",
+    "dueDate": "",
+    "xpValue": 50
+  },
+  {
+    "Id": 15,
+    "name": "Hosting Purchase",
+    "levelId": 4,
+    "assignedTo": "",
+    "status": "pending",
+    "dueDate": "",
+    "xpValue": 50
+  },
+  {
+    "Id": 16,
+    "name": "Gmail Create on Domain Name",
+    "levelId": 4,
+    "assignedTo": "",
+    "status": "pending",
+    "dueDate": "",
+    "xpValue": 50
+  },
+  {
+    "Id": 17,
+    "name": "Cloudflare Setup",
+    "levelId": 4,
+    "assignedTo": "",
+    "status": "pending",
+    "dueDate": "",
+    "xpValue": 75
+  },
+  {
+    "Id": 18,
+    "name": "WordPress Installation on Main Domain",
+    "levelId": 4,
+    "assignedTo": "",
+    "status": "pending",
+    "dueDate": "",
+    "xpValue": 100
+  },
+  {
+    "Id": 19,
+    "name": "Migration Pantheon To Hosting & Uncheck Discourage Option ASAP",
+    "levelId": 4,
+    "assignedTo": "",
+    "status": "pending",
+    "dueDate": "",
+    "xpValue": 150
+  },
+  {
+    "Id": 20,
+    "name": "RankMath SEO Settings",
+    "levelId": 5,
+    "assignedTo": "",
+    "status": "pending",
+    "dueDate": "",
+    "xpValue": 100
+  },
+  {
+    "Id": 21,
+    "name": "Schema Settings",
+    "levelId": 5,
+    "assignedTo": "",
+    "status": "pending",
+    "dueDate": "",
+    "xpValue": 100
+  },
+  {
+    "Id": 22,
+    "name": "Speed Optimization LiteSpeed + Perfmatters",
+    "levelId": 5,
+    "assignedTo": "",
+    "status": "pending",
+    "dueDate": "",
+    "xpValue": 150
+  },
+  {
+    "Id": 23,
+    "name": "Enable Auto Update For All Plugins and Theme",
+    "levelId": 5,
+    "assignedTo": "",
+    "status": "pending",
+    "dueDate": "",
+    "xpValue": 50
+  },
+  {
+    "Id": 24,
+    "name": "Serp inn Setup for Ranking Track",
+    "levelId": 5,
+    "assignedTo": "",
+    "status": "pending",
+    "dueDate": "",
+    "xpValue": 100
+  },
+  {
+    "Id": 25,
+    "name": "Social Media Accounts Setup",
+    "levelId": 6,
+    "assignedTo": "",
+    "status": "pending",
+    "dueDate": "",
+    "xpValue": 100
+  },
+  {
+    "Id": 26,
+    "name": "Social Sharing of All Posts",
+    "levelId": 6,
+    "assignedTo": "",
+    "status": "pending",
+    "dueDate": "",
+    "xpValue": 75
+  },
+  {
+    "Id": 27,
+    "name": "Foundation Backlinks",
+    "levelId": 6,
+    "assignedTo": "",
+    "status": "pending",
+    "dueDate": "",
+    "xpValue": 150
+  },
+  {
+    "Id": 28,
+    "name": "Nandla Strategy",
+    "levelId": 6,
+    "assignedTo": "",
+    "status": "pending",
+    "dueDate": "",
+    "xpValue": 100
+  },
+  {
+    "Id": 29,
+    "name": "Competitor Analysis + Reverse Engineering",
+    "levelId": 6,
+    "assignedTo": "",
+    "status": "pending",
+    "dueDate": "",
+    "xpValue": 150
+  },
+  {
+    "Id": 30,
+    "name": "Niche Edits + Guest Post Links",
+    "levelId": 6,
+    "assignedTo": "",
+    "status": "pending",
+    "dueDate": "",
+    "xpValue": 200
+  }
+]

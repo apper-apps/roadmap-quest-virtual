@@ -1,0 +1,50 @@
+[
+  {
+    "Id": 1,
+    "name": "Research & Planning",
+    "description": "Initial research and content strategy",
+    "badgeIcon": "Search",
+    "color": "#B8A7E8",
+    "taskCount": 4
+  },
+  {
+    "Id": 2,
+    "name": "WordPress Setup",
+    "description": "Initial WordPress configuration and setup",
+    "badgeIcon": "Settings",
+    "color": "#FFD4DB",
+    "taskCount": 4
+  },
+  {
+    "Id": 3,
+    "name": "Design & Content",
+    "description": "Website design and content implementation",
+    "badgeIcon": "Palette",
+    "color": "#A8E6CF",
+    "taskCount": 5
+  },
+  {
+    "Id": 4,
+    "name": "Domain & Hosting",
+    "description": "Domain setup and hosting configuration",
+    "badgeIcon": "Globe",
+    "color": "#81D4FA",
+    "taskCount": 6
+  },
+  {
+    "Id": 5,
+    "name": "SEO & Performance",
+    "description": "Search engine optimization and site performance",
+    "badgeIcon": "Zap",
+    "color": "#FFD54F",
+    "taskCount": 5
+  },
+  {
+    "Id": 6,
+    "name": "Off-page SEO & Backlinks",
+    "description": "Social media setup and link building",
+    "badgeIcon": "Link",
+    "color": "#FF8A80",
+    "taskCount": 6
+  }
+]

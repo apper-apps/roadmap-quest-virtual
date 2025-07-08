@@ -1,0 +1,56 @@
+[
+  {
+    "Id": 1,
+    "levelId": 1,
+    "name": "Research Master",
+    "icon": "Search",
+    "description": "Complete all research and planning tasks",
+    "unlocked": false,
+    "unlockedDate": null
+  },
+  {
+    "Id": 2,
+    "levelId": 2,
+    "name": "Setup Specialist",
+    "icon": "Settings",
+    "description": "Complete WordPress setup and configuration",
+    "unlocked": false,
+    "unlockedDate": null
+  },
+  {
+    "Id": 3,
+    "levelId": 3,
+    "name": "Design Guru",
+    "icon": "Palette",
+    "description": "Complete website design and content creation",
+    "unlocked": false,
+    "unlockedDate": null
+  },
+  {
+    "Id": 4,
+    "levelId": 4,
+    "name": "Hosting Hero",
+    "icon": "Globe",
+    "description": "Complete domain and hosting setup",
+    "unlocked": false,
+    "unlockedDate": null
+  },
+  {
+    "Id": 5,
+    "levelId": 5,
+    "name": "SEO Champion",
+    "icon": "Zap",
+    "description": "Complete SEO and performance optimization",
+    "unlocked": false,
+    "unlockedDate": null
+  },
+  {
+    "Id": 6,
+    "levelId": 6,
+    "name": "Link Building Legend",
+    "icon": "Link",
+    "description": "Complete off-page SEO and backlink building",
+    "unlocked": false,
+    "unlockedDate": null
+  }
+]
