@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { toast } from "react-toastify";
+import { useOutletContext } from "react-router-dom";
 import ProjectHeader from "@/components/organisms/ProjectHeader";
 import LevelCard from "@/components/organisms/LevelCard";
 import AchievementGallery from "@/components/organisms/AchievementGallery";
@@ -14,7 +15,8 @@ import { useAchievements } from "@/hooks/useAchievements";
 import { levelService } from "@/services/api/levelService";
 
 const Dashboard = () => {
-  const { project, calculateStats } = useProject();
+  const { selectedProject } = useOutletContext();
+  const { calculateStats } = useProject();
   const { 
     tasks, 
     loading: tasksLoading, 
@@ -23,7 +25,7 @@ const Dashboard = () => {
     assignTask, 
     setDueDate,
     refetch: refetchTasks
-  } = useTasks();
+  } = useTasks(selectedProject?.Id);
   const { 
     achievements, 
     loading: achievementsLoading, 
@@ -69,10 +71,11 @@ const Dashboard = () => {
     }
   };
 
-  const handleTaskStatusChange = async (taskId, status) => {
+const handleTaskStatusChange = async (taskId, status) => {
     try {
       await updateTaskStatus(taskId, status);
-      const updatedStats = await calculateStats(tasks);
+      const projectTasks = tasks.filter(t => t.projectId === selectedProject?.Id);
+      const updatedStats = await calculateStats(projectTasks);
       setProjectStats(updatedStats);
       
       // Check for achievements after a brief delay to ensure state is updated
@@ -104,13 +107,14 @@ const Dashboard = () => {
     loadLevels();
   }, []);
 
-  useEffect(() => {
-    if (tasks.length > 0) {
-      calculateStats(tasks).then(stats => {
+useEffect(() => {
+    if (tasks.length > 0 && selectedProject) {
+      const projectTasks = tasks.filter(t => t.projectId === selectedProject.Id);
+      calculateStats(projectTasks).then(stats => {
         setProjectStats(stats);
       });
     }
-  }, [tasks, calculateStats]);
+  }, [tasks, selectedProject, calculateStats]);
 
   useEffect(() => {
     if (tasks.length > 0 && achievements.length > 0 && levels.length > 0) {
@@ -118,8 +122,18 @@ const Dashboard = () => {
     }
   }, [tasks, achievements, levels]);
 
-  const loading = tasksLoading || achievementsLoading || levelsLoading;
+const loading = tasksLoading || achievementsLoading || levelsLoading;
   const error = tasksError || achievementsError || levelsError;
+
+  if (!selectedProject) {
+    return (
+      <Empty
+        title="No project selected"
+        description="Please select a project from the sidebar to view its tasks"
+        icon="FolderOpen"
+      />
+    );
+  }
 
   if (loading) {
     return <Loading />;
@@ -138,11 +152,13 @@ const Dashboard = () => {
     );
   }
 
-  if (tasks.length === 0) {
+  const projectTasks = tasks.filter(t => t.projectId === selectedProject.Id);
+
+  if (projectTasks.length === 0) {
     return (
       <Empty
         title="No tasks found"
-        description="Your project tasks will appear here once they're loaded"
+        description="This project's tasks will appear here once they're loaded"
         icon="CheckSquare"
         onAction={() => window.location.reload()}
         actionLabel="Reload"
@@ -153,7 +169,7 @@ const Dashboard = () => {
 return (
     <div className="space-y-8">
       <ProjectHeader 
-        project={project} 
+        project={selectedProject} 
         stats={projectStats}
       />
       
@@ -168,7 +184,7 @@ return (
                 <LevelCard
                   key={level.Id}
                   level={level}
-                  tasks={tasks}
+                  tasks={projectTasks}
                   achievement={achievement}
                   onTaskStatusChange={handleTaskStatusChange}
                   onTaskAssign={handleTaskAssign}
@@ -188,13 +204,13 @@ return (
           )}
           
           <div className="grid grid-cols-1 gap-6">
-            {levels.slice(Math.ceil(levels.length / 2)).map((level) => {
+{levels.slice(Math.ceil(levels.length / 2)).map((level) => {
               const achievement = achievements.find(a => a.levelId === level.Id);
               return (
                 <LevelCard
                   key={level.Id}
                   level={level}
-                  tasks={tasks}
+                  tasks={projectTasks}
                   achievement={achievement}
                   onTaskStatusChange={handleTaskStatusChange}
                   onTaskAssign={handleTaskAssign}

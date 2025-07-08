@@ -1,8 +1,17 @@
 import projectsData from "@/services/mockData/projects.json";
 
 let projects = [...projectsData];
+let nextId = Math.max(...projects.map(p => p.Id)) + 1;
 
 export const projectService = {
+  getAll: () => {
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        resolve([...projects]);
+      }, 300);
+    });
+  },
+
   getCurrentProject: () => {
     return new Promise((resolve) => {
       setTimeout(() => {
@@ -11,7 +20,48 @@ export const projectService = {
     });
   },
 
-  updateProject: (id, updates) => {
+  getById: (id) => {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        const project = projects.find(p => p.Id === parseInt(id));
+        if (project) {
+          resolve({ ...project });
+        } else {
+          reject(new Error("Project not found"));
+        }
+      }, 200);
+    });
+  },
+
+  create: (projectData) => {
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        const newProject = {
+          ...projectData,
+          Id: nextId++,
+          createdAt: projectData.createdAt || new Date().toISOString().split('T')[0]
+        };
+        projects.push(newProject);
+        resolve({ ...newProject });
+      }, 400);
+    });
+  },
+
+  delete: (id) => {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        const index = projects.findIndex(p => p.Id === parseInt(id));
+        if (index !== -1) {
+          const deleted = projects.splice(index, 1)[0];
+          resolve({ ...deleted });
+        } else {
+          reject(new Error("Project not found"));
+        }
+      }, 300);
+    });
+  },
+
+updateProject: (id, updates) => {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
         const index = projects.findIndex(p => p.Id === parseInt(id));

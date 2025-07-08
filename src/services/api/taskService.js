@@ -1,12 +1,22 @@
 import tasksData from "@/services/mockData/tasks.json";
 
-let tasks = [...tasksData];
+let tasks = [...tasksData.map(task => ({ ...task, projectId: 1 }))];
+let nextId = Math.max(...tasks.map(t => t.Id)) + 1;
 
 export const taskService = {
   getAllTasks: () => {
     return new Promise((resolve) => {
       setTimeout(() => {
         resolve([...tasks]);
+      }, 300);
+    });
+  },
+
+  getTasksByProject: (projectId) => {
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        const projectTasks = tasks.filter(t => t.projectId === parseInt(projectId));
+        resolve([...projectTasks]);
       }, 300);
     });
   },
@@ -86,6 +96,25 @@ export const taskService = {
           reject(new Error("Task not found"));
         }
       }, 200);
+});
+  },
+
+  createTasksForProject: (projectId) => {
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        const templateTasks = tasksData;
+        const newTasks = templateTasks.map(task => ({
+          ...task,
+          Id: nextId++,
+          projectId: parseInt(projectId),
+          assignedTo: "",
+          status: "pending",
+          dueDate: ""
+        }));
+        
+        tasks.push(...newTasks);
+        resolve([...newTasks]);
+      }, 400);
     });
   }
 };
